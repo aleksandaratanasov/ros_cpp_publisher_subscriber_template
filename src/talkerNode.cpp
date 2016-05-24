@@ -1,4 +1,4 @@
-#include "node_example/talkerNode.h"
+#include "talkerNode.h"
 
 TalkerNode::TalkerNode()
 {

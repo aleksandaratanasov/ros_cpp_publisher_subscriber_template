@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(node_example)
 
-find_package(catkin REQUIRED COMPONENTS message_generation roscpp std_msgs)
+find_package(catkin REQUIRED COMPONENTS roscpp std_msgs message_generation)
 
 add_message_files(
   FILES
@@ -14,7 +14,7 @@ generate_messages(
 )
 
 catkin_package(
-  CATKIN_DEPENDS message_runtime roscpp std_msgs
+  CATKIN_DEPENDS roscpp std_msgs message_runtime
 )
 
 include_directories(include ${catkin_INCLUDE_DIRS})
@@ -31,6 +31,8 @@ set(SRCS2 ${SRCS2} src/listener.cpp)
 
 # Build the executable that will be used to run this node.
 add_executable(${BINNAME1} ${SRCS1})
+add_dependencies(${BINNAME1} ${BINNAME1}_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${BINNAME1} ${catkin_LIBRARIES})
 add_executable(${BINNAME2} ${SRCS2})
+add_dependencies(${BINNAME2} ${BINNAME2}_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${BINNAME2} ${catkin_LIBRARIES})

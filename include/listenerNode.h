@@ -6,7 +6,7 @@
 #include<ros/time.h>
 
 // Custom message includes. Auto-generated from msg/ directory.
-#include "node_example/Chatter.h"
+#include <node_example/Chatter.h>
 
 class ListenerNode
 {

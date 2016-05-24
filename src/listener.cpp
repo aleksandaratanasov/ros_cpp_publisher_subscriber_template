@@ -1,4 +1,4 @@
-#include "node_example/listenerNode.h"
+#include "listenerNode.h"
 
 int main(int argc, char **argv)
 {
